@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  single-table_db:
+    container_name: single-table_db_container
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    env_file:
+      - .env
+    volumes:
+      - single-tableData:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - single-tableNData
+
+networks:
+  single-tableNData:
+    driver: bridge
+
+volumes:
+  single-tableData:
+    driver: local
