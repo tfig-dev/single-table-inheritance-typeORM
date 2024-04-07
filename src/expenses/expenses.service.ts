@@ -16,7 +16,7 @@ export class ExpensesService {
     private accomodationRepository: Repository<Accomodation>,
   ) {}
 
-  async fincOne(id: number): Promise<Expense> {
+  async findOne(id: number): Promise<Expense> {
     const expense = await this.expenseRepository.findOne({
       where: { id },
     });
